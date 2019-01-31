@@ -28,6 +28,8 @@ final class App
             $controllerInstance->$action();
         } else {
             header("HTTP/1.0 404 Not Found");
+            $view = new View();
+            $view->render('404');
         }
     }
 }

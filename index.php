@@ -13,7 +13,7 @@ $includePaths = implode(PATH_SEPARATOR, array(
     BP . 'app/controller',
 ));
 
-var_dump($includePaths);
+//var_dump($includePaths);
 
 set_include_path($includePaths);
 //register autoloader, to auto-include classes when needed
@@ -21,7 +21,9 @@ spl_autoload_register(function ($class) {
     //echo $class . "<br />";
     $classPath = strtr($class, '\\', DIRECTORY_SEPARATOR) . '.php';
     //echo $classPath;
-    return include $classPath;
+    if(file_exists("app/model/".$classPath) || file_exists("app/controller/".$classPath)) {
+        include $classPath;
+    }
 });
 //start app
 App::start();
