@@ -32,4 +32,9 @@ final class App
             $view->render('404');
         }
     }
+    public static function config($key)
+    {
+     $config = include BP.'app/config.php';
+     return $config[$key];
+    }
 }

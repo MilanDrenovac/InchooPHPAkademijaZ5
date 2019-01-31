@@ -1,5 +1,5 @@
-<p>This is index.phtml</p>
+<p>This Database</p>
 
 <?php foreach ($posts as $post): ?>
-    <p><?= htmlspecialchars($post) ?></p>
+    <p><?php echo $post->getContent(),'<br>'; ?></p>
 <?php endforeach; ?>
