@@ -1,5 +1,12 @@
 <p>This Database</p>
 
+<form method="post" action="<?= App::config('url')?>/Index/newPost">
+    <div class="form-gorup">
+        <label for="content">Whats on your mind?</label>
+        <input id="content" name="content" type="text">
+    </div>
+    <button type="submit">Send</button>
+</form>
 <?php foreach ($posts as $post): ?>
     <p><?php echo $post->getContent(),'<br>'; ?></p>
 <?php endforeach; ?>
