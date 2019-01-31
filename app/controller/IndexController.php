@@ -39,4 +39,12 @@ class IndexController
             return $data;
         }
     }
+    public function view($id)
+    {
+        echo $id;
+        $view = new View();
+        $view->render('view',[
+            'post' => Post::find($id)
+        ]);
+    }
 }

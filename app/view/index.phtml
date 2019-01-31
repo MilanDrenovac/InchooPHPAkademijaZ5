@@ -8,5 +8,7 @@
     <button type="submit">Send</button>
 </form>
 <?php foreach ($posts as $post): ?>
-    <p><?php echo $post->getContent(),'<br>'; ?></p>
+    <p>
+        <a href="<?php echo App::config('url')?>/Index/view/<?=$post->getId()?>">
+        <?php echo $post->getContent(),'<br>'; ?></p>
 <?php endforeach; ?>

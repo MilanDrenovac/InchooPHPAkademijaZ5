@@ -39,4 +39,14 @@ class Post{
 
         return $list;
     }
+    public static function find($id)
+    {
+        $id=(int)$id;
+        $db = Db::connect();
+        $statement = $db->prepare('select * from post where id = :id');
+        $statement ->bindValue('id',$id);
+        $statement->execute();
+        $post= $statement->fetch();
+        return new Post($post->id,$post->content);
+    }
 }
